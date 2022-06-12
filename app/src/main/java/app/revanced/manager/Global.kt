@@ -1,5 +1,7 @@
 package app.revanced.manager
 
+import android.app.Application
+
 class Global {
     companion object {
         private const val websiteUrl = "https://revanced.app"
@@ -10,5 +12,8 @@ class Global {
         const val ghPatches = "$ghOrg/revanced-patches"
         const val ghPatcher = "$ghOrg/revanced-patcher"
         const val ghManager = "$ghOrg/revanced-manager"
+
+        val app: Application
+            get() = MainActivity.app
     }
 }

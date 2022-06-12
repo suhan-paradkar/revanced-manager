@@ -12,15 +12,13 @@ repositories {
     mavenCentral()
     maven("https://jitpack.io")
     google()
-    listOf("revanced-patcher", "revanced-patches").forEach { repo ->
-        maven {
-            url = uri("https://maven.pkg.github.com/revanced/$repo")
-            credentials {
-                username =
-                    (project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")) as String
-                password =
-                    (project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")) as String
-            }
+    maven {
+        url = uri("https://maven.pkg.github.com/revanced/revanced-patcher")
+        credentials {
+            username =
+                (project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")) as String
+            password =
+                (project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")) as String
         }
     }
 }
@@ -89,16 +87,16 @@ android {
 
 dependencies {
     // Core
-    implementation("androidx.core:core-ktx:1.7.0")
+    implementation("androidx.core:core-ktx:1.8.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1")
     implementation("androidx.activity:activity-compose:1.4.0")
     implementation("androidx.compose.ui:ui:$composeVersion")
     implementation("androidx.compose.ui:ui-tooling-preview:$composeVersion")
     implementation("androidx.navigation:navigation-compose:2.5.0-rc01")
 
     // ReVanced
-    implementation("app.revanced:revanced-patcher:1.0.0-dev.14")
-    implementation("app.revanced:revanced-patches:1.0.0-dev.10")
+    implementation("app.revanced:revanced-patcher:1.0.0")
 
     // Compose Destinations
     implementation("io.github.raamcosta.compose-destinations:core:1.5.5-beta")
@@ -121,8 +119,8 @@ dependencies {
     implementation("org.bouncycastle:bcpkix-jdk15on:1.70")
 
     // Material 3 + 2
-    implementation("androidx.compose.material3:material3-window-size-class:1.0.0-alpha12")
-    implementation("androidx.compose.material3:material3:1.0.0-alpha12")
+    implementation("androidx.compose.material3:material3-window-size-class:1.0.0-alpha13")
+    implementation("androidx.compose.material3:material3:1.0.0-alpha13")
     implementation("androidx.compose.material:material:1.1.1")
 
     // Tests

@@ -1,5 +1,6 @@
 package app.revanced.manager
 
+import android.app.Application
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -9,15 +10,15 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import app.revanced.manager.backend.utils.AndroidAaptProvider
+import app.revanced.manager.backend.utils.Aapt2
 import app.revanced.manager.ui.screens.MainScreen
 import app.revanced.manager.ui.theme.ReVancedManagerTheme
-import brut.androlib.res.AndrolibResources
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AndrolibResources.setAaptProvider(AndroidAaptProvider(applicationContext))
+        app = application
+        aaptPath = Aapt2.binary(applicationContext).absolutePath
         setContent {
             ReVancedManagerTheme {
                 Surface(
@@ -28,6 +29,13 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    companion object {
+        lateinit var app: Application
+            private set
+        lateinit var aaptPath: String
+            private set
     }
 }
 

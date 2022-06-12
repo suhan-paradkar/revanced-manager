@@ -40,4 +40,5 @@
     <string name="screen_credits_team">Team</string>
     <string name="screen_credits_translators">Translators</string>
     <string name="screen_credits_team_patcher">Patcher</string>
+    <string name="error_message">An error occurred while %1$s.\nPlease check the logs for more information!</string>
 </resources>
