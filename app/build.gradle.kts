@@ -112,7 +112,7 @@ dependencies {
     implementation("com.android.tools.build:apksig:7.2.1")
 
     // Compose Destinations
-    implementation("io.github.raamcosta.compose-destinations:core:1.6.12-beta")
+    implementation("io.github.raamcosta.compose-destinations:core:1.7.15-beta")
     implementation("androidx.work:work-runtime-ktx:2.7.1")
     ksp("io.github.raamcosta.compose-destinations:ksp:1.7.15-beta")
 
